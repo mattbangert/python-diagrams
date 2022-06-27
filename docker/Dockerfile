@@ -3,7 +3,7 @@ FROM python:3.9-alpine
 
 LABEL maintainer="Matt Bangert <mattbangert@gmail.com>"
 
-RUN apk update && apk add --no-cache graphviz=2.38.0-r5 \
+RUN apk update && apk add --no-cache graphviz=3.0.0-r0 \
   && rm -rf /var/cache/apk/* \
   && pip3 install --no-cache-dir diagrams==0.21.1
 
