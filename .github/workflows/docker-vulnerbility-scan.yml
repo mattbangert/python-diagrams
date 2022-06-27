@@ -1,0 +1,18 @@
+name: Docker Vulnerability Scan
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'
+
+jobs:
+  scan:
+    name: Weekly Vulnerability Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull docker image
+        run: docker pull mattbangert/python-diagrams
+      - uses: lazy-actions/gitrivy@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          image: mattbangert/python-diagrams
+          issue_assignee: mattbangert
